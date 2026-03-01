@@ -5,6 +5,7 @@ import api from "../services/api"
 export default function ProdutoGrid(){
 
     const [produtos, setProdutos] = useState([]);
+    const [produtoParaExcluir, setProdutoParaExcluir] = useState(null);
 
     useEffect(() => {
         carregarProdutos();
@@ -15,11 +16,22 @@ export default function ProdutoGrid(){
         setProdutos(response.data);
     }
 
-    const excluirProduto = async (id) => {
-        if (window.confirm("Tem certeza que deseja excluir este produto?")) {
-            await api.delete(`/${id}`);
-            carregarProdutos();
+    const abrirModalExclusao = (produto) => {
+        setProdutoParaExcluir(produto);
+    }
+
+    const fecharModalExclusao = () => {
+        setProdutoParaExcluir(null);
+    }
+
+    const confirmarExclusao = async () => {
+        if (!produtoParaExcluir) {
+            return;
         }
+
+        await api.delete(`/${produtoParaExcluir.id}`);
+        fecharModalExclusao();
+        carregarProdutos();
     }
 
     const formatarPreco = (valor) => {
@@ -58,7 +70,7 @@ export default function ProdutoGrid(){
                                     <Link to={`/editar/${produto.id}`} className="btn btn-sm btn-primary">
                                         Editar
                                     </Link>
-                                    <button className="btn btn-sm btn-danger ms-2" onClick={() => excluirProduto(produto.id)}>
+                                    <button className="btn btn-sm btn-danger ms-2" onClick={() => abrirModalExclusao(produto)}>
                                         Excluir
                                     </button>   
                                 </td>
@@ -71,6 +83,33 @@ export default function ProdutoGrid(){
                     </tbody>
                 </table>
             </div>
+
+            {produtoParaExcluir && (
+                <>
+                    <div className="modal fade show d-block" tabIndex="-1" role="dialog" aria-modal="true">
+                        <div className="modal-dialog modal-dialog-centered" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">Confirmar exclusão</h5>
+                                    <button type="button" className="btn-close" aria-label="Close" onClick={fecharModalExclusao}></button>
+                                </div>
+                                <div className="modal-body">
+                                    <p className="mb-0">Tem certeza que deseja excluir o produto "{produtoParaExcluir.nome}"?</p>
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" onClick={fecharModalExclusao}>
+                                        Cancelar
+                                    </button>
+                                    <button type="button" className="btn btn-danger" onClick={confirmarExclusao}>
+                                        Excluir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="modal-backdrop fade show"></div>
+                </>
+            )}
         </div>
     )
 }

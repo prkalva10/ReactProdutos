@@ -12,3 +12,5 @@ Para inciar o servidor JSON use um terminal:
 Para iniciar o app ReacProduto use outro terminal:
     npm run dev
 
+Para monitoramento do json-server, pode usar o https://app.apidog.com/
+

@@ -44,3 +44,13 @@ Projeto de Front React - Produtos:
 12. Criar botões de edição e excluir no grid;
 
 13. Criar formulário de edição;
+
+14. Funcionamento do editar;
+
+15. Funcionamento do salvar, tanto para inserção quanto para atualização;
+
+16. Funcionamento do Excluir;
+
+17. Início das melhorias - colocar uma janela de confirmação de exclusão mais bonita;
+
+
