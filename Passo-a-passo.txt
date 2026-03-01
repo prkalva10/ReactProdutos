@@ -1,0 +1,35 @@
+Projeto de Front React - Produtos:
+
+1. Criar o repositório no GIT;
+
+2. Criar o projeto:
+    npm create vite@latest ReactProduto
+
+3. Comandos para instalar algumas bibliotecas e teste inicial:
+    cd ReactProduto
+    npm install axios react-router-dom bootstrap
+    npm run dev
+
+4. Limpar o conteúdo dos arquivos App que vem com um template;
+
+5. Adicionar o bootstrap no main.jsx:
+
+    import 'bootstrap/dist/css/bootstrap.min.css';
+
+6. Criar Componentes:
+    - Menu:
+    - Grid;
+    - Form;
+
+7. Ajustar as rotas;
+
+8. Layout do grid;
+
+9. DB por JSON:
+    - Criar o JSON de dados;
+    - Instalar o json server:
+    npm install -g json-server
+
+10. Servidor json server:
+    json-server --watch db.json --port 5000
+

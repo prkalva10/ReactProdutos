@@ -1,2 +1,12 @@
 # ReactProdutos
-Produtos em React
+Projeto para testes de uso do REACT como interface. 
+Não tem backend, será usado o json-server como simulador de backend.
+
+Para iniciar o app tem que iniciar dois terminais, um com o servidor json e outro com o front React.
+
+Para inciar o servidor JSON use um terminal:
+    json-server --watch db.json --port 5000
+
+Para iniciar o app ReacProduto use outro terminal:
+    npm run dev
+    
