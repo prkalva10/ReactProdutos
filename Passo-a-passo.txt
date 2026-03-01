@@ -33,3 +33,14 @@ Projeto de Front React - Produtos:
 10. Servidor json server:
     json-server --watch db.json --port 5000
 
+11. Commit desses passos iniciais:
+
+    git config --global user.name "<meu-usuario-git>"
+    git config --global user.email "<meu-email-git>"
+
+    git commit -m "feat: inicia projeto ReactProduto"
+    git push -u origin main
+
+12. Criar botões de edição e excluir no grid;
+
+13. Criar formulário de edição;

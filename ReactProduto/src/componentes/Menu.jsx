@@ -6,8 +6,8 @@ export default function Menu(){
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Produtos</Link>
                 <div className="navbar-nav">
-                    <Link className="nav-link" to="/">Lista</Link>
-                    <Link className="nav-link" to="/novo">Adicionar</Link>
+                    <Link className="nav-link" to="/">Lista de Produtos</Link>
+                    <Link className="nav-link" to="/novo">Adicionar novo Produto</Link>
                 </div>
             </div>
         </nav>
